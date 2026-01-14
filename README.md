@@ -19,7 +19,7 @@ I have organized my learning into the following folders to make navigation easy:
 * **`03-Functions/`**: Function definitions, prototypes, and recursion.
 * **`04-Arrays-Strings/`**: Multi-dimensional arrays and string manipulation.
 * **`05-Pointers/`**: Memory addresses, pointer arithmetic, and DMA.
-* **`06-Structures-Unions/`**: User-defined data types.
+* **`06-Structures-Unions/`**: User-defined data types.(ujwal)
 
 ---
 
