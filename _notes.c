@@ -1863,3 +1863,38 @@ int main() {
 
 //accha question
 
+# include <stdio.h>
+    int main(){
+        int x = 6;   //0110
+        int y = 12;  //1100
+        int z;
+
+        z = x & y;
+        printf("and is %d\n", z);
+
+        //now lets check or
+        z = x | y;
+        printf("or is %d\n", z);
+
+        //XOR
+        z = x ^ y;
+        printf("xor is %d\n", z);
+
+        //left shift <<
+        z = x<<1;
+        printf("left shift by 1 is %d\n", z);
+
+        z = x<<2;
+        printf("left shift by 2 is %d\n", z);
+
+        // right shift >>
+        z = x>>1;
+        printf("right shift by one is %d\n", z);
+
+        z = x>>4;
+        printf("right shift by four is %d", z);
+
+
+    } 
+
+//bitwise operators and binary revision data
