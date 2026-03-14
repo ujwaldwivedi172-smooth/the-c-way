@@ -875,7 +875,7 @@ int fib(int n){
   }
 
   int fibNm1 = fib(n-1);
-  int fibNm2 = fib(n-2);
+  int fibNm2 = fib(n-2);  
 
   int fibN= fibNm1 + fibNm2;
   return fibN;
@@ -971,7 +971,7 @@ void _square(int* n){
     *n = (*n) * (*n);
     printf("square is %d\n", *n);
 
-}
+}   
 
 /*THIS CODE EXPLAINS US ABOUT DIFFERENCE BETWEEN CALL BY VALUE  AND CALL BY REFERENCE.
 OUTPUT IS 16 4 16 16. *N IS BASICALLY A POINTER.*/
@@ -1898,3 +1898,246 @@ int main() {
     } 
 
 //bitwise operators and binary revision data
+
+#include <stdio.h>
+#include <stdbool.h>
+
+bool is_prime(int N){
+    for(int i=2; i<=N/2; i++){
+        if(N % i == 0){
+            return false;
+        }
+    }
+    return true;
+}
+
+int next_prime(int num){
+    int next = num + 1;
+    while(!is_prime(next)){
+        next++;
+    }
+    return next;
+
+}
+
+int main(){
+    int n;
+    scanf("%d", &n);
+
+    int arr[100];
+    for(int i=0; i<n;i++){
+        scanf("%d", &arr[i]);
+    }
+
+    
+int sum = 0;
+
+    for(int i=0; i<n; i++){
+        sum+= next_prime(arr[i]); 
+    }
+
+    printf("%d\n", sum);
+
+
+
+}
+
+// A very good question
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(){
+    char ch;
+    while((ch = getchar()) != ';'){
+        switch (ch){
+            case 'a': case 'e' :  case 'i': case 'o' : case 'u':
+            case 'A': case 'E' :  case 'I': case 'O' : case 'U':
+            break;
+
+            case '#': {
+                char next = getchar();
+                if(isalpha(next)){
+                    putchar((toupper(next)));
+                }else{
+                    putchar(next);
+                }
+                break;
+            }
+
+            case '*' : {
+                char next = getchar();
+                putchar(next);
+                putchar(next);
+            }
+
+            case '1': case '2' :  case '3': case '4' : case '5':
+            case '6': case '7' :  case '8': case '9' : case '0':
+            printf("DIGIT");
+            break;
+
+            default :
+            putchar(ch);
+
+
+        }
+            
+        
+    }
+    return 0;
+}
+//another one
+
+#include <stdio.h>
+
+int main() {
+    int m, n;
+    scanf("%d %d", &m, &n);
+
+    int matrix[100][100];
+
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    int top = 0, bottom = m - 1;
+    int left = 0, right = n - 1;
+
+    while (top <= bottom && left <= right) {
+
+        // Traverse from left to right
+        for (int i = left; i <= right; i++) {
+            printf("%d ", matrix[top][i]);
+        }
+        top++;
+
+        // Traverse from top to bottom
+        for (int i = top; i <= bottom; i++) {
+            printf("%d ", matrix[i][right]);
+        }
+        right--;
+
+        // Traverse from right to left
+        if (top <= bottom) {
+            for (int i = right; i >= left; i--) {
+                printf("%d ", matrix[bottom][i]);
+            }
+            bottom--;
+        }
+
+        // Traverse from bottom to top
+        if (left <= right) {
+            for (int i = bottom; i >= top; i--) {
+                printf("%d ", matrix[i][left]);
+            }
+            left++;
+        }
+    }
+
+    return 0;
+}
+
+//another one
+
+# include <stdio.h>
+int main(){
+    int n;
+    scanf("%d", &n);
+    int num=1;
+
+    for(int i=1;i<=n;i++){
+        if(i % 2 != 0){
+            for(int j=1; j<=n; j++){
+                printf("%d ", num);
+                num++;
+            }
+        }
+
+        if(i % 2 == 0){
+            int temp = n+num-1;
+            for(int j=1; j<=n; j++){
+                printf("%d ", temp);
+                temp--;
+            }
+            num += n;
+        }
+        printf("\n");
+        
+    }
+    printf("\n");
+}
+
+//another one
+ 
+#include <stdio.h>
+
+int main() {
+    int N;
+    scanf("%d", &N);
+
+    char cmd;
+    char status = 'G';   // Initial status
+    int time = 0;
+
+    for(int i = 0; i < N; i++) {
+        scanf(" %c", &cmd);
+
+        if(cmd == 'S') {
+            continue;  // Skip current command
+        }
+
+        switch(cmd) {
+            case 'G':
+                status = 'G';
+                break;
+
+            case 'Y':
+                status = 'Y';
+                time += 5;
+                break;
+
+            case 'R':
+                status = 'R';
+                time += 10;
+                break;
+
+            case 'P':
+                if(status == 'R') {
+                    time += 15;
+                }
+                break;
+
+            default:
+                time += 1;   // Invalid command penalty
+        }
+    }
+
+    printf("%c %d", status, time);
+
+    return 0;
+}
+
+#include <stdio.h>
+int main(){
+    int n,m;
+    scanf("%d %d", &n,&m);
+    int in[m];
+    int out[m];
+    for (int i=0;i<n;i++){
+        for (int j=0;j<m;j++){
+            scanf("%d", &in[j]);
+        }
+        out[m-1] = 0;
+        for (int k = m-2;k>=0;k--){
+            out[k] = out[k+1] + in[k+1];
+        }
+        for (int j=0;j<m;j++){
+            printf("%d ", out[j]);
+        }
+        printf("\n");
+    }
+}
+
+// randwa code
