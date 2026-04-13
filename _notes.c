@@ -2197,3 +2197,140 @@ int main(){
 }
 
 //practice q2
+
+#include <stdio.h>
+
+int main(){
+    int n;
+    scanf("%d", &n);
+
+    int half = n/2;
+    int mat[n][n];
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+
+    int temp;
+    for(int i=0; i<half; i++){
+        for(int j=0; j<half; j++){
+            temp = mat[i][j];
+            mat[i][j] = mat[i+(n-half)][j+(n-half)];
+            mat[i+(n-half)][j+(n-half)] = temp;
+        }
+    }
+
+    for(int i=0; i<half; i++){
+        for(int j=0; j<half; j++){
+            temp = mat[i][j+(n-half)];
+            mat[i][j+(n-half)] = mat[i+(n-half)][j];
+            mat[i+(n-half)][j] = temp;
+        }
+    }
+
+    
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            printf("%d ", mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+//quadrant wise separation of square matrix
+
+#include <stdio.h>
+#include<string.h>
+#include<stdbool.h>
+
+int main(){
+    char str[100];
+    scanf("%s", str);
+
+    int n = strlen(str);
+    bool symmetric = true;
+
+    for(int i=0; i<n/2; i++){
+        if(str[i] != str[n-i-1]){
+            symmetric = false;
+            break;
+        }
+    }
+
+    if(symmetric == true){
+        printf("symmetric");
+    }else{
+        printf("Not symmetric");
+    }
+}
+
+//prac
+
+#include <stdio.h>
+int main(){
+    int r,c;
+    scanf("%d %d", &r,&c);
+
+    int mat[r][c];
+    for(int i=0; i<r; i++){
+        for(int j=0; j<c; j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+
+    int mat1[100][100];
+
+    for(int i=0; i<r; i++){
+        mat1[i][c-1] = 0;
+        for(int j=0; j<c-1; j++){
+            int sum = 0;
+            for(int k=j+1; k<c;k++ ){
+                sum += mat[i][k];
+            }
+            mat1[i][j] = sum;
+        }
+        
+    }
+
+    for(int i = 0; i < r; i++){
+        for(int j = 0; j < c; j++){
+            printf("%d ", mat1[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+//prac
+
+
+#include <stdio.h>
+
+int main(){
+    int n,m;
+    scanf("%d %d", &n, &m);
+
+    int arr[100];
+    for(int i=0; i<n; i++){
+        scanf("%d",&arr[i]);
+    }
+
+    int advantage = 0;
+    int count = 0;
+    for(int i=0; i<n; i++){
+        count+=arr[i];
+    }
+
+    for(int i=0; i<n; i++){
+        int state = arr[i]+m;
+        int rest = count - arr[i];
+        if(state > rest){
+            advantage++;
+        }
+    }
+
+    printf("%d", advantage);
+}
+
+//prac
