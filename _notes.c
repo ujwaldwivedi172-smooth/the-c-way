@@ -2141,3 +2141,59 @@ int main(){
 }
 
 // good question
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    long long k;
+    scanf("%d %lld", &n, &k);
+
+    int arr[1000];
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    int start = k % n;  
+    for (int i = start; i < n; i++)
+        printf("%d ", arr[i]);
+    for (int i = 0; i < start; i++)
+        printf("%d ", arr[i]);
+
+    printf("\n");
+    return 0;
+}
+
+//Practice q 1
+
+#include <stdio.h>
+
+int main(){
+    int n;
+    int arr[100];
+
+    scanf("%d", &n);
+    for(int i=0; i<n; i++){
+        scanf("%d", &arr[i]);
+    }
+    int count =0;
+    int state;
+    int count_=0;
+    int num;
+    for(int i=0; i<n-1; i++){
+        state = arr[i];
+        for(int j=i+1;j<n; j++){
+            count += arr[j];    
+        }
+        num = n-i-1;
+        if(state*num > count ){
+            count_++;
+        }
+
+        count = 0;
+    }
+
+    printf("%d", count_);
+
+}
+
+//practice q2
