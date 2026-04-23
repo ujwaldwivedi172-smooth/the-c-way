@@ -2366,3 +2366,27 @@ int main(){
 }
 
 //prac
+
+#include <stdio.h>
+
+typedef struct{
+    float cgpa;
+}str;
+
+int main(){
+    str A[5];
+    for(int i=0; i<5; i++){
+        scanf("%f", &A[i].cgpa);
+    }
+
+    float avg = 0;
+    for(int i=0; i<5; i++){
+        avg += A[i].cgpa;
+    }
+
+    printf("%0.1f", avg/5.0);
+
+
+}
+
+//some structures syntax
