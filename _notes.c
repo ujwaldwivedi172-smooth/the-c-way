@@ -2334,3 +2334,35 @@ int main(){
 }
 
 //prac
+
+#include <stdio.h>
+
+int main(){
+    int n,m;
+    scanf("%d %d",&n,&m);
+    int mat[100][100];
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<m; j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+
+    int midrow = n/2;
+    int midcol = m/2;
+    int sum = 0;
+
+    for(int j=0; j<m; j++){
+        sum += mat[midrow][j];
+    }
+
+    for(int i=0; i<n; i++){
+        if(i != midrow){
+            sum += mat[i][midcol];
+        }
+    }
+
+    printf("%d",sum);
+}
+
+//prac
